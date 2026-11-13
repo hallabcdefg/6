@@ -35,10 +35,10 @@
             "key" : "js_好趣",
             "name" : "🇨🇳分享直播",
             "type" : 3,
-            "api" : "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/raw.githubusercontent.com/hallabcdefg/api/refs/heads/main/JS/drpy2.min.js",
-            "ext" : "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/raw.githubusercontent.com/hallabcdefg/6/refs/heads/main/JS/好趣.js"
+            "api" : "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/.com/hallabcdefg/api/refs/heads/main/JS/drpy2.min.js",
+            "ext" : "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/.com/hallabcdefg/6/refs/heads/main/JS/好趣.js"
         },
-   {"key":"py_直播平台","name":"💖分享平台","type":3,"api":"https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/raw.githubusercontent.com/hallabcdefg/6/refs/heads/main/PY/直播平台.py","searchable":1,"quickSearch":0,"filterable":0,"changeable":0},
+   {"key":"py_直播平台","name":"💖分享平台","type":3,"api":"https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/.com/hallabcdefg/6/refs/heads/main/PY/直播平台.py","searchable":1,"quickSearch":0,"filterable":0,"changeable":0},
 
  {
       "key": "TangDou_Spider",
@@ -62,7 +62,7 @@
             "key": "csp_XYQHikerNm",
             "name": "💖分享在线",
             "type": 3,
-            "api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/raw.githubusercontent.com/hallabcdefg/6/refs/heads/main/PY/八戒影视.py",
+            "api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/.com/hallabcdefg/6/refs/heads/main/PY/八戒影视.py",
             "searchable": 1,
             "changeable": 0,
             "quickSearch": 0,   "filterable": 0}, 
@@ -70,7 +70,7 @@
       "key": "小苹果.py",
       "name": "💝分享苹果",
       "type": 3,
-      "api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/raw.githubusercontent.com/hallabcdefg/6/main/PY/分享者小苹果.py"
+      "api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/.com/hallabcdefg/6/main/PY/分享者小苹果.py"
     },
 	
 	{"key": "蓝鹰","name": "💝分享蓝鹰","type": 3,"api": "https://raw.giteeusercontent.com/monosodium-glutamate/wjwj/raw/master/lib/get.js","searchable": 1,"changeable": 1,"ext": {"host": "http://103.217.190.91:5566","key": "hagYExMdMkeWfemK","Iv": "hagYExMdMkeWfemK",  "init": "V122",
@@ -80,13 +80,13 @@
       "key": "橘汁",
       "name": "💝分享橘汁",
       "type": 3,
-      "api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/raw.githubusercontent.com/hallabcdefg/6/main/PY/橘汁.py"
+      "api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/.com/hallabcdefg/6/main/PY/橘汁.py"
     },
     {
       "key": "华谊影视",
       "name": "💝分享华谊",
       "type": 3,
-      "api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c?url=/raw.githubusercontent.com/qist/tvbox/master/py/华谊影视.py",
+      "api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/.com/qist/tvbox/master/py/华谊影视.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -144,7 +144,7 @@
       "key": "咕噜",
       "name": "💝分享咕噜",
       "type": 3,
-      "api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/raw.githubusercontent.com/hallabcdefg/6/main/PY/分享咕噜.py"
+      "api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/.com/hallabcdefg/6/main/PY/分享咕噜.py"
     },
 	 {
       "key": "分享者咕噜.py",
@@ -251,7 +251,7 @@
             "key": "白嫖鸭",
             "name": "💝分享北漂",
             "type": 3,
-            "api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/raw.githubusercontent.com/hallabcdefg/api/refs/heads/main/JS/drpy2.min.js",
+            "api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/.com/hallabcdefg/api/refs/heads/main/JS/drpy2.min.js",
             "ext": "./PY/bpy.js"
         },
          {  "key": "小鸡看看",
@@ -305,7 +305,7 @@
             "key": "py_金牌影视",
             "name": "💖分享金牌",
             "type": 3,
-            "api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/raw.githubusercontent.com/hallabcdefg/6/main/PY/金牌.py",
+            "api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/.com/hallabcdefg/6/main/PY/金牌.py",
             "searchable": 1,
             "quickSearch": 1,
             "filterable": 1,
@@ -505,7 +505,7 @@
       "key": "js_腾讯视频",
       "name": "💝分享企鹅",
       "type": 3,
-      "api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/raw.githubusercontent.com/hallabcdefg/api/refs/heads/main/JS/drpy2.min.js",
+      "api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/.com/hallabcdefg/api/refs/heads/main/JS/drpy2.min.js",
       "ext": "./PY/qq.js"
     },
 	{
@@ -523,7 +523,7 @@
 	
     {"api":"https://banyeomni.780420.xyz:17777/api/tvbox/source/2097848347502055424?token=banye666","filterable":0,"key":"spider_2097848347502055424","name":"💝分享天堂","searchable":1,"type":4},
     
-	{"key": "cupfox_in","name": "💝分享茶杯","type": 3,"api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/raw.githubusercontent.com/hallabcdefg/api/refs/heads/main/JS/drpy2.min.js","ext": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c?url=/raw.githubusercontent.com/qist/tvbox/master/js/茶杯狐.js","searchable": 1,"quickSearch": 1,"filterable": 0,"changeable": 1,"header": {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0"}},
+	{"key": "cupfox_in","name": "💝分享茶杯","type": 3,"api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/.com/hallabcdefg/api/refs/heads/main/JS/drpy2.min.js","ext": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/raw.githubusercontent.com/qist/tvbox/master/js/茶杯狐.js","searchable": 1,"quickSearch": 1,"filterable": 0,"changeable": 1,"header": {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0"}},
 	 {
       "key": "py_极速",
       "name": "💖分享极速",
@@ -681,8 +681,8 @@
       "api": "./PY/瓜子APP.py"
     },
   
-{"key": "TVB云播","name": "💝分享云播","type": 3,"api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c?url=/raw.githubusercontent.com/qist/tvbox/master/py/TVB云播.py","searchable": 0,"quickSearch": 1,"filterable": 0,"changeable": 0},
-	 {"key": "新闪雷","name": "💝分享闪雷","type": 3,"api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c?url=/raw.githubusercontent.com/qist/tvbox/master/lib/drpy2.min.js","ext": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c?url=/raw.githubusercontent.com/qist/tvbox/master/js/新闪雷.js","header": {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0"}},
+{"key": "TVB云播","name": "💝分享云播","type": 3,"api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/raw.githubusercontent.com/qist/tvbox/master/py/TVB云播.py","searchable": 0,"quickSearch": 1,"filterable": 0,"changeable": 0},
+	 {"key": "新闪雷","name": "💝分享闪雷","type": 3,"api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/raw.githubusercontent.com/qist/tvbox/master/lib/drpy2.min.js","ext": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/raw.githubusercontent.com/qist/tvbox/master/js/新闪雷.js","header": {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0"}},
 	
     
      {
@@ -925,7 +925,7 @@
  
          {"key": "js_en_gf","name": "💝分享官方","type": 3,"api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/raw.githubusercontent.com/alantang1977/X/main/py/en_gf.js","style": {"type": "rect","ratio": 1.33},"changeable": 1},  
           
-          {"key":"聚合短剧_async","name":"💝分享短剧","type":3,"api":"https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4craw.githubusercontent.com/cluntop/cluntop.github.io/main/js/聚合短剧.js","style":{"type":"rect","ratio":1.33},
+          {"key":"聚合短剧_async","name":"💝分享短剧","type":3,"api":"https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/raw.githubusercontent.com/cluntop/cluntop.github.io/main/js/聚合短剧.js","style":{"type":"rect","ratio":1.33},
 "changeable":1},
   
         {"key": "永乐","name": "💝分享永乐","type": 3,"api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/raw.githubusercontent.com/alantang1977/X/main/py/永乐视频.py","searchable": 1,"quickSearch": 1,"filterable": 1,"order_num": 0,"ext": ""},
