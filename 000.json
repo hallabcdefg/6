@@ -14,11 +14,11 @@
             "key": "豆瓣",
             "name": "🅱️分享豆瓣",
             "type": 3,
-            "api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c?url=https://raw.githubusercontent.com/hallabcdefg/api/refs/heads/main/JS/drpy2.min.js",
+            "api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/raw.githubusercontent.com/hallabcdefg/api/refs/heads/main/JS/drpy2.min.js",
             "searchable": 0,
             "quickSearch": 0,
             "filterable": 0,
-            "ext": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c?url=https://raw.githubusercontent.com/hallabcdefg/TV/refs/heads/master/JS/分享douban.js"
+            "ext": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/raw.githubusercontent.com/hallabcdefg/TV/refs/heads/master/JS/分享douban.js"
         },
         {"key":"csp_Config","name":"💝分享配置","type":3,"api":"csp_Config","jar":"./vox.jar","searchable":0,"changeable":0},
         
