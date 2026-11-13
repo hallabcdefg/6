@@ -928,7 +928,7 @@
           {"key":"聚合短剧_async","name":"💝分享短剧","type":3,"api":"https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c?url=https://raw.githubusercontent.com/hallabcdefg/cluntop/main/js/聚合短剧.js","style":{"type":"rect","ratio":1.33},
 "changeable":1},
   
-        {"key": "永乐","name": "💝分享永乐","type": 3,"api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/raw.githubusercontent.com/hallabcdefg/cluntop/main/py/永乐视频.js","searchable": 1,"quickSearch": 1,"filterable": 1,"order_num": 0,"ext": ""},
+        {"key": "永乐","name": "💝分享永乐","type": 3,"api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/raw.githubusercontent.com/hallabcdefg/cluntop/main/js/永乐视频.js","searchable": 1,"quickSearch": 1,"filterable": 1,"order_num": 0,"ext": ""},
 
 {"key": "js集合","name": "💝分享js集","type": 4,"api": "http://zhangqun1818.serv00.net/js.php","searchable": 1,"style": {"type": "rect","ratio": 1.33},"changeable": 1},
 {"key": "采集集合","name": "💝分享合集","type": 4,"api": "http://zhangqun1818.serv00.net/cj/cjjh.php","searchable": 1,"style": {"type": "rect","ratio": 1.33},"ext":"1","changeable": 1},
