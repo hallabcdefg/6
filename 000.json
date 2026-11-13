@@ -925,7 +925,7 @@
  
          {"key": "js_en_gf","name": "💝分享官方","type": 3,"api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/raw.githubusercontent.com/alantang1977/X/main/py/en_gf.js","style": {"type": "rect","ratio": 1.33},"changeable": 1},  
           
-          {"key":"聚合短剧_async","name":"💝分享短剧","type":3,"api":"https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/raw.githubusercontent.com/hallabcdefg/cluntop/main/js/聚合短剧.js","style":{"type":"rect","ratio":1.33},
+          {"key":"聚合短剧_async","name":"💝分享短剧","type":3,"api":"https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c?url=https://raw.githubusercontent.com/hallabcdefg/cluntop/main/js/聚合短剧.js","style":{"type":"rect","ratio":1.33},
 "changeable":1},
   
         {"key": "永乐","name": "💝分享永乐","type": 3,"api": "https://old-b6i.pages.dev/proxy/e8dc1ce8d993de4c/raw.githubusercontent.com/alantang1977/X/main/py/永乐视频.py","searchable": 1,"quickSearch": 1,"filterable": 1,"order_num": 0,"ext": ""},
