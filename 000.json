@@ -86,7 +86,7 @@
       "key": "华谊影视",
       "name": "15分享华谊",
       "type": 3,
-      "api": "./deps/qist/tvbox/py/华谊影视.py",
+      "api": "./PY/华谊影视.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
