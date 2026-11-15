@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # by @嗷呜
 import sys
+import re
 from pyquery import PyQuery as pq
 sys.path.append('..')
 from base.spider import Spider
@@ -51,13 +52,48 @@ class Spider(Spider):
         pass
 
     def categoryContent(self, tid, pg, filter, extend):
-        data=self.getpq(f"{tid}page-{pg}.html")
-        result = {}
-        result['list'] = self.getlist(data('#MainContent_newestlist .virow .NTMitem'))
-        result['page'] = pg
-        result['pagecount'] = 9999
-        result['limit'] = 90
-        result['total'] = 999999
+        # 站点无二级筛选：默认页是最新精选，page-N.html 却是最老片升序归档。
+        # 第 1 页改为「默认页 + 热度页(?sort=hot) 合并去重」，再按
+        # 年份(2026优先) > 热度页命中 > 收录ID 倒序，把刚上映/2026 新片与热门片排最前。
+        try:
+            p = max(1, int(str(pg).strip() or '1'))
+        except Exception:
+            p = 1
+        base = str(tid or '').strip()
+        if not base.endswith('/'):
+            base += '/'
+        sel = '#MainContent_newestlist .virow .NTMitem'
+        try:
+            pqobj = self.getpq(base if p == 1 else f'{base}page-{p}.html')
+            lst = self.getlist(pqobj(sel), internal=True)
+            maxpg = self._maxpage(pqobj)
+            if p == 1:
+                try:
+                    hot = self._hot_best(base, sel)
+                    hotids = set(v.get('vod_id') for v in hot if v.get('vod_id'))
+                    seen, merged = set(), []
+                    for v in lst + hot:
+                        k = v.get('vod_id')
+                        if not k or k in seen:
+                            continue
+                        seen.add(k)
+                        if k in hotids:
+                            v['_hot'] = 1
+                        merged.append(v)
+                    lst = merged
+                except Exception:
+                    pass
+        except Exception:
+            lst, maxpg = [], 0
+        lst.sort(key=self._rank, reverse=True)
+        result = {
+            'list': [self._clean(v) for v in lst],
+            'page': p,
+            'pagecount': max(maxpg, p + 1, 1),
+            'limit': max(len(lst), 24),
+            'total': 0,
+        }
+        result['total'] = result['pagecount'] * result['limit']
         return result
 
     def detailContent(self, ids):
@@ -105,17 +141,76 @@ class Spider(Spider):
     def liveContent(self, url):
         pass
 
-    def getlist(self,data,y='.resyear label[title="分辨率"]'):
+    # ---- 排序辅助（站点无二级筛选，改为按年份/热度/收录序自定义排序）----
+    @staticmethod
+    def _idnum(href):
+        m = re.search(r'/(\d{5,7})-', str(href or ''))
+        return int(m.group(1)) if m else 0
+
+    @staticmethod
+    def _yearnum(item, fallback=''):
+        t = item('label[title="年份"]').text() or ''
+        if not t:
+            t = item('.resyear label').eq(1).text() or ''
+        m = re.search(r'(?:19|20)\d{2}', t)
+        if not m:
+            m = re.search(r'(?:19|20)\d{2}', fallback or '')
+        return int(m.group(0)) if m else 0
+
+    @staticmethod
+    def _clean(v):
+        for k in ('_year', '_id', '_hot', '_res'):
+            v.pop(k, None)
+        return v
+
+    @staticmethod
+    def _rank(v):
+        # 年份(2026 最前) > 热度页命中 > 收录ID(越大越新)
+        return (v.get('_year', 0), v.get('_hot', 0), v.get('_id', 0))
+
+    def _maxpage(self, pqobj):
+        try:
+            nums = [int(x) for x in re.findall(r'page-(\d+)\.html', str(pqobj))]
+            return max(nums) if nums else 0
+        except Exception:
+            return 0
+
+    def _hot_best(self, base, sel):
+        # 热度页 ?sort=hot 抓 2 次，取「新片更多/收录更新」那版。
+        # 站点 CDN 会随机返回旧版缓存，设备端直连通常命中新版，多取一次择优兜底。
+        best, best_score = [], (-1, -1)
+        for _ in range(2):
+            try:
+                cur = self.getlist(self.getpq(base + '?sort=hot')(sel), internal=True)
+            except Exception:
+                cur = []
+            fresh = sum(1 for v in cur if v.get('_year', 0) >= 2026)
+            maxid = max([v.get('_id', 0) for v in cur] or [0])
+            if (fresh, maxid) > best_score:
+                best_score, best = (fresh, maxid), cur
+        return best
+
+    def getlist(self, data, y='.resyear label[title="分辨率"]', internal=False):
         videos = []
         for i in data.items():
             ns = i('.title h2').text().split(' ')
-            videos.append({
-                'vod_id': i('.title a').attr('href'),
+            href = i('.title a').attr('href')
+            extra = i(y).text() or ''
+            year = self._yearnum(i, extra)
+            v = {
+                'vod_id': href,
                 'vod_name': ns[0],
                 'vod_pic': i('.poster img').attr('src'),
                 'vod_remarks': ns[-1] if len(ns) > 1 else '',
-                'vod_year': i(y).text()
-            })
+                # 修正：原先误把「分辨率」填进 vod_year，这里填真实年份
+                'vod_year': str(year) if year else extra,
+            }
+            if internal:
+                v['_year'] = year
+                v['_id'] = self._idnum(href)
+                v['_res'] = i('label[title="分辨率"]').text() or ''
+                v['_hot'] = 0
+            videos.append(v)
         return videos
 
     def getpq(self, path=''):
