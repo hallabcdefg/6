@@ -1891,9 +1891,6 @@
             "logo": "https://epg.112114.xyz/logo/{name}.png"
         }],
 
-//动态图片
- "logo": "./fxz_logo.gif",
-
 //解码模式
 
 "ijk":[{"group":"软解码","options":[{"category":4,"name":"opensles","value":"0"},{"category":1,"name":"fflags","value":"fastseek"},{"category":4,"name":"framedrop","value":"1"},
