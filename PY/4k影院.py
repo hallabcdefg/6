@@ -98,22 +98,31 @@ class Spider(Spider):
 
     def detailContent(self, ids):
         data=self.getpq(ids[0])
+        # 本页已抓取，顺手缓存播放直链：播放首集/本集时无需再请求详情页
+        try:
+            u0 = data('#MainContent_videowindow source').attr('src')
+            if u0:
+                self._cache_src(str(ids[0]), u0)
+        except Exception:
+            pass
         v=data('#videoinfo')
         vod = {
             'type_name': v('#MainContent_tags.tags a').text(),
             'vod_year': v('#MainContent_videodetail.videodetail a').text(),
             'vod_remarks': v('#MainContent_titleh12 h2').text(),
             'vod_content': v('p.cnline').text(),
-            'vod_play_from': '4KAV',
+            # 两条线路共用同一份选集：默认 1080P 最省带宽，需要真 4K 时手动切第二条
+            'vod_play_from': '1080P流畅$$$4K超清',
             'vod_play_url': ''
         }
         vlist=data('#rtlist li')
         if vlist:
             c=[f"{i('span').text()}${i('a').attr('href')}" for i in list(vlist.items())[1:]]
             c.insert(0,f"{vlist.eq(0)('span').text()}${ids[0]}")
-            vod['vod_play_url'] = '#'.join(c)
+            play = '#'.join(c)
         else:
-            vod['vod_play_url'] = f"{data('#tophead h1').text()}${ids[0]}"
+            play = f"{data('#tophead h1').text()}${ids[0]}"
+        vod['vod_play_url'] = play + '$$$' + play
         return {'list':[vod]}
 
     def searchContent(self, key, quick, pg="1"):
@@ -121,19 +130,59 @@ class Spider(Spider):
         return {'list':self.getlist(data('#MainContent_newestlist .virow.search .NTMitem.Main'))}
 
     def playerContent(self, flag, id, vipFlags):
+        # 直链优先取 detailContent 阶段缓存的；未命中才抓详情页并重试。
+        # 不再退化成 parse=1 返回网页地址（端上会走 WebView 嗅探，极慢且易超时换源）。
+        url = self._source_of(str(id))
+        if not url:
+            return {'parse': 0, 'url': '', 'header': self._play_headers()}
+        # 选中「4K超清」线路时切到 /4K/ 档；部分影片无此档，探测失败自动回退 1080P
+        if '4K' in str(flag).upper():
+            alt = url.replace('/1080P/', '/4K/')
+            if alt != url and self._is_m3u8(alt):
+                url = alt
+        return {'parse': 0, 'url': url, 'header': self._play_headers()}
+
+    # ---- 播放链路加固：直链缓存 / 重试 / 最优请求头 / 4K 档探测 ----
+    _src_cache = {}
+    _src_order = []
+
+    @classmethod
+    def _cache_src(cls, key, url):
+        cls._src_cache[key] = url
         try:
-            data=self.getpq(id)
-            p,url=0,data('#MainContent_videowindow source').attr('src')
-            if not url:raise Exception("未找到播放地址")
-        except Exception as e:
-            p,url=1,f"{self.host}{id}"
-        headers = {
-            'origin': self.host,
+            cls._src_order.append(key)
+            while len(cls._src_order) > 128:
+                cls._src_cache.pop(cls._src_order.pop(0), None)
+        except Exception:
+            pass
+
+    def _source_of(self, page):
+        if page in self._src_cache:
+            return self._src_cache[page]
+        for _ in range(2):
+            try:
+                d = self.getpq(page)
+                u = d('#MainContent_videowindow source').attr('src')
+                if u:
+                    self._cache_src(page, u)
+                    return u
+            except Exception:
+                pass
+        return ''
+
+    def _play_headers(self):
+        # 实测：不带 origin、referer 用主域时分片命中 Cloudflare HIT，
+        # 带 www 的 origin/referer 反而容易 MISS 回源，速度掉一半。
+        return {
             'referer': f'{self.host}/',
-            'sec-ch-ua-platform': '"macOS"',
-            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36',
+            'user-agent': self.headers.get('user-agent', ''),
         }
-        return  {'parse': p, 'url': url, 'header': headers}
+
+    def _is_m3u8(self, url):
+        try:
+            return '#EXTM3U' in self.fetch(url, headers=self.headers).text[:80]
+        except Exception:
+            return False
 
     def localProxy(self, param):
         pass
